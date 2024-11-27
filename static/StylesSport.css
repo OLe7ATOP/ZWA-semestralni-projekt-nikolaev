@@ -1,0 +1,487 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS';
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    font-size: 270%;
+    color: white;
+    margin: 0;
+    padding: 30px;
+    background-color: #1F45FC;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mainlink {
+    color: white;
+    width: 20%;
+}
+
+.personallinks a{
+    color: white;
+}
+
+h1 a:hover{
+    color: #7488ed;
+}
+
+h2 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #306EFF;
+}
+
+h3 {
+    text-align: center;
+    font-size: 200%;
+}
+
+.page-name{
+    text-align: center;
+    font-size: 200%;
+}
+
+.info {
+    margin: 30px 10% 40px 10%;
+    width: 80%;
+    overflow: auto;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.voskl{
+    width: 10%;
+    margin: 10px 0 0 2%;
+    padding: 0;
+}
+
+.info li {
+    list-style-type: none;
+    margin: 2.5% 10%;
+    padding: 10px 5px;
+    text-align: center;
+    width: 50%;
+    border: 3px solid #306EFF;
+}
+
+.ava {
+    margin: 90px 20px 20px 10px;
+    border-radius: 30%;
+    float: right;
+    height: 300px;
+}
+
+.info h3 {
+    width: 72%;
+    text-align: center;
+    border-bottom: 2px solid #1F45FC;
+}
+
+.sections h3 {
+    width: 80%;
+    font-size: 170%;
+    text-align: center;
+    padding: 0 0 5px 0;
+    margin: 5px 0 10px 10%;
+    border-bottom: 2px solid #1F45FC;
+}
+
+
+.section-list{
+    margin-left: 22%;
+}
+
+
+
+
+.sections {
+    border-radius: 10px;
+    margin: 20px 0 20px 40px;
+    height: 400px;
+    overflow: auto;
+    width: 20%;
+    box-shadow: 0 0 20px black;
+    float: left;
+}
+
+.sections img{
+    width: 100%;
+}
+
+.sections p{
+    margin: 0 10px 15px 10px;
+}
+
+.sections a{
+    text-decoration: none;
+    color: black;
+}
+
+.icon{
+    float: left;
+    margin: 40px 2%;
+    width: 9%;
+}
+
+.trainers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trener1 {
+    margin: 20px 1% 20px 2.5%;
+    width: 38%;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+    float: left;
+    overflow: auto;
+}
+
+.trener1 img{
+   float: left;
+   border-radius: 50%;
+   width: 30%;
+   margin: 10px 10px 5px 10px;
+}
+
+.trenerinfo {
+    margin-left: 35%;
+    width: 65%;
+    height: 100%;
+    
+}
+
+.trenerinfo h3{
+    border-top-right-radius: 10px;
+    background-color: #306EFF;
+    color: white;
+    height: 30px;
+    margin: 0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.trenerinfo p{
+    margin: 10px 0;
+}
+
+.dropdown {
+    margin: 0;
+    padding: 10px;
+    border-left: 2px solid black;
+}
+
+.dropdown ul{
+    margin: 5px 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+
+
+.kids {
+    margin: 20px 15% 20px 15%;
+    width: 20%;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+    float: left;
+}
+
+.kids img {
+    
+    border-radius: 50%;
+    width: 90%;
+    margin: 10px 10px 5px 10px;
+}
+
+.kidinfo h3 {
+    width: 72%;
+    padding-bottom: 3px;
+    text-align: center;
+    border-bottom: 2px solid #1F45FC;
+    margin: 0 14%;
+}
+
+.kidinfo p{
+    padding: 0 10px;
+}
+
+.ticketlist {
+    width: 80%;
+    margin: 30px 10% 0 10%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+
+.tickets {
+    margin: 0 2%;
+    width: 20%;
+    border: 2px solid black;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+}
+.tickinfo{
+    height: 35%;
+}
+
+.tickets li{
+    margin: 5px;
+}
+
+
+.tickets img{
+    border-radius: 50%;
+    width: 90%;
+    margin: 10px 10px 5px 10px;
+}
+
+.tickets h3{
+    width: 72%;
+    padding-bottom: 3px;
+    text-align: center;
+    border-bottom: 2px solid #1F45FC;
+    margin: 0 14%;
+}
+
+.tickets ul{
+    padding: 0;
+    padding-left: 25%;
+}
+
+.price {
+    width: 80%;
+    margin: 10px 0 20px 10%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #1F45FC;
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+.price:hover {
+    cursor: pointer;
+    background-color: #102cb4;
+}
+
+
+
+.contacts {
+    width: 80%;
+    margin: 30px 10%;
+    background-color: #1F45FC;
+    color: white;    
+    overflow: auto;
+    border-radius: 15px;
+}
+
+.contacts img{
+    border-radius: 2px;
+    width: 45%;
+    margin: 2% 2% 2% 0;
+    float: right;
+}
+
+.contacts ul{
+    width: 40%;
+    margin: 2% 30px;
+    list-style-type: none;
+    font-size: 30px;
+}
+
+.contacts a{
+    color: white;
+    font-weight: 100;
+}
+
+.contacts a:hover{
+    color: #00BFFF;
+}
+
+.contacts li{
+    color: #00BFFF;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+.photos{
+    margin: 0;
+    padding: 2px;
+    display: flex;
+    width: 99%;
+    overflow: auto;
+}
+
+.photos img{
+    height: 500px;
+}
+
+.schedule{
+    padding 20px;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.schedule-dayofweek {
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 0 8px;
+}
+
+.schedule-dayofweek h4{
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+    background-color: #1F45FC;
+    color: white;
+}
+
+.schedule-items{
+    border: 1px solid black;
+    background-color: #00BFFF;
+    padding: 8px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.schedule-items h5{
+    padding: 0;
+    margin: 0;
+}
+
+.trainermaininfo {
+    margin: 30px 20%;
+    width: 60%;
+    height
+    overflow: auto;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 150%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.trainermaininfo .image-cont{
+    height: 90%;
+    width: 100%;
+    margin-right: 10%;
+}
+
+.trainermaininfo img{
+    height: 100%;
+    width: 100%;
+
+}
+
+
+.regheader {
+    background-color: white;
+    color: black;
+    margin: 50px 0 10px 0;
+    font-size: 200%;
+}
+
+form {
+    border: 2px solid #1F45FC;
+    border-radius: 15px;
+    box-shadow: 0 0 30px grey;
+    padding: 2%;
+    width: 40%;
+    margin: 2% 29%;
+    font-size: 170%;
+
+}
+
+input, select {
+    font-size: 100%;
+    width: 40%;
+    margin: 0;
+}
+
+form label{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+form button {
+    font-size: 80%;
+}
+
+.resetbutton {
+    width: 80%;
+    margin: 10px 0 20px 10%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #aeaeae;
+    border-radius: 15px;
+    border: none;
+}
+
+.resetbutton:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+
+#passcheck {
+    font-size: 80%;
+    text-align: right;
+    margin: 0;
+}
+
+
+.login input{
+    margin-left: 30%;
+}
+
+.login label{
+    justify-content: center;
+}
+
+.login button {
+    margin-left: 8%;
+}
+
+
+.resultmessage {
+    position: absolute;
+    width: 40%;
+    margin: 5% 30%;
+    background-color: white;
+    border: 2px solid blue;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.resultmessage button{
+    margin-left: 0;
+}
