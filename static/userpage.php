@@ -11,21 +11,27 @@ $age = $age->diff(new DateTime($user["dob"]))->y;
     </h2>
     <div class="trainermaininfo">
         <div class="image-cont">
-            <!--
-            <?php
-            $photo_name = strtolower($trainer_name);
-            $photo_name = str_replace(' ', '', $photo_name);
 
-            $file = glob("pictures/{$photo_name}.*");
-            if(!empty($file)) {
-                echo "<img src='{$file[0]}' alt='{$photo_name}'>";
-            } else {
-                echo "<p>  [  Image_Error ]  </p>";
+            <?php
+            if(isset($user['photo'])) {
+                $file = glob("pictures/userpictures/{$user['photo']}");
+                if (!empty($file)) {
+                    echo "<img src='{$file[0]}' >";
+                } else {
+                    echo "<p>  [  Image_Error ]  </p>";
+                }
             }
             ?>
-            -->
+
         </div>
-        <p>Hello! My name is <?php echo $user["fname"]?> ! <br><br></p>
+
+        <p>Hello! My name is <?php echo $user["fname"]?> ! <br><br>
+            <?php
+            if(isset($user['aboutme'])) {
+                echo $user['aboutme'];
+            }
+            ?>
+        </p>
         <div class="dropdown">
             <ul>
                 <li> <?php echo "<u>Age</u>:<br>{$age}"?></li>

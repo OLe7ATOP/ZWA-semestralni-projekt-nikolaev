@@ -20,7 +20,7 @@ if(isset($_SESSION["message"])){
     unset($_SESSION["message"]);
 }
 ?>
-<form action="save_form.php" method="post">
+<form action="save_form.php" method="post" enctype="multipart/form-data">
     <label for="firstname">Your first name: <input type="text" id="firstname" name="fname" placeholder="Jason" required></label>
     <label for="secondname">Your second name: <input type="text" id="secondname" name="sname" placeholder="Statham" required></label><br>
     <label for="dob">Your date of birth: <input type="date" id="dob" name="dob" required></label><br>
@@ -38,8 +38,11 @@ if(isset($_SESSION["message"])){
     <label for="password">Set password: <input type="password" id="password" name="pass01" placeholder="Password" required></label>
     <label for="reppassword">Set password: <input type="password" id="reppassword" name="pass02" placeholder="Repeat password" required onchange="checkpass()"></label>
     <p id="passcheck"></p><br>
-    <label for="img">Any image? <input type="file" id="img" name="profilephoto" accept="image/*"></label><br>
+    <label for="img">Any image? <label class="custom-input-but"><input type="file" id="img" name="profilephoto" accept="image/*" onchange="displayname(this)">Load Image</label>   </label><br>
+    <input type="hidden" name="userphoto" id="userphoto">
 
+    <legend>Tell us something about yourself</legend>
+    <textarea id="aboutme" name="aboutme" cols="50" rows="10"></textarea>
     <button type="submit" class="price">Registrate</button>
     <button type="reset" class="resetbutton">Clear the info</button>
 </form>

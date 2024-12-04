@@ -70,6 +70,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $dobDate = new DateTime($dob);
     $age = $currentdate->diff($dobDate);
 
+
+
+
     $data = [
         "id" => 0,
         "fname" => $firstname,
@@ -81,7 +84,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         "status" => "customer"
     ];
 
-    $filepath = __DIR__ . '\userinfo\userinfo.json';
+    if(isset($_POST['aboutme'])){
+        $data['aboutme'] = htmlspecialchars($_POST["aboutme"]);
+    }
+
+
+        htmlspecialchars($_POST["dob"]);
+
+    if(isset($_FILES['profilephoto'])) {
+        $file = $_FILES['profilephoto'];
+        $pictDir = __DIR__.'/pictures/userpictures/';
+        if(!is_dir($pictDir)){
+            mkdir($pictDir, 0777, true);
+        }
+
+        $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $uniqueFileName = uniqid('userpic_', true).'.'.$file_extension;
+        $picFilePath = $pictDir.$uniqueFileName;
+
+        if(move_uploaded_file($file['tmp_name'], $picFilePath)){
+            $data["photo"] = $uniqueFileName;
+        } else {
+            $_SESSION["message"] = "Error in loading photo";
+            $err = true;
+            header("Location: registration.php");
+            exit();
+        }
+    } else {
+        $data["photo"] = "";
+    }
+
+    $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if (file_exists($filepath)) {
         $jsonContent = file_get_contents($filepath);
@@ -113,8 +146,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $data["id"] = sizeof($existingData);
     $existingData[] = $data;
     file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    $_SESSION["message"] = "Info was saved";
-    header("Location: registration.php");
+    $_SESSION["user"] = json_encode($data, true);
+    $_SESSION["status"] = $data["status"];
+    header("Location: userpage.php");
     exit();
 
 

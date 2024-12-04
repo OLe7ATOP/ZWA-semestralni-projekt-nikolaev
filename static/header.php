@@ -14,11 +14,11 @@ session_start();
 <h1><a href="mainpage.php" class="mainlink">GYM in Prague</a>
     <div class="personallinks">
     <?php
-    if($_SESSION["status"] == "unlogin") {
+    if(!isset($_SESSION["status"]) || $_SESSION["status"] == "unlogin") {
         echo "<a href='login.php'>Log In</a> | <a href='registration.php'>Register</a>";
     } else {
         $user = json_decode($_SESSION["user"], true);
-        echo "<a href='userpage.php'>{$user["fname"]} {$user["sname"]}</a> | <a href='logout.php'>Log Out</a>";
+        echo "<a href='userpage.php'>( {$user["status"]} ) {$user["fname"]} {$user["sname"]}</a> | <a href='logout.php'>Log Out</a>";
     }
     ?>
     </div>

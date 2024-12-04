@@ -16,3 +16,10 @@ function closeMessage(button){
     const messageBox = button.parentElement;
     messageBox.style.display = 'none';
 }
+
+
+function displayname(obj) {
+    const fileName = obj.files[0] ? obj.files[0].name : "Load Image";
+    obj.textContent = fileName;
+    document.getElementById("userphoto").value = fileName;
+}
