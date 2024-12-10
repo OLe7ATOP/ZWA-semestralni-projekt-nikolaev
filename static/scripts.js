@@ -18,8 +18,17 @@ function closeMessage(button){
 }
 
 
+
 function displayname(obj) {
-    const fileName = obj.files[0] ? obj.files[0].name : "Load Image";
-    obj.textContent = fileName;
-    document.getElementById("userphoto").value = fileName;
+    const fileInput = document.getElementById('img');
+    const fileName = fileInput.files[0]?.name;
+    const fileNameDisplay = document.getElementById('loadedimage');
+
+    // Если файл выбран, показываем его имя
+    if (fileName) {
+        fileNameDisplay.textContent = "Selected file: " + fileName;
+    } else {
+        fileNameDisplay.textContent = "No file selected";
+    }
 }
+

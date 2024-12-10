@@ -12,7 +12,7 @@ require_once "header.php";
 
 <?php
 if(isset($_SESSION["message"])){
-    $message = htmlspecialchars($_SESSION["message"]);
+    $message = $_SESSION["message"];
     echo "<div class='resultmessage'>";
     echo "<h3>{$message}</h3><br>";
     echo "<button onclick='closeMessage(this)' class='price'>OK</button>";
@@ -38,9 +38,8 @@ if(isset($_SESSION["message"])){
     <label for="password">Set password: <input type="password" id="password" name="pass01" placeholder="Password" required></label>
     <label for="reppassword">Set password: <input type="password" id="reppassword" name="pass02" placeholder="Repeat password" required onchange="checkpass()"></label>
     <p id="passcheck"></p><br>
-    <label for="img">Any image? <label class="custom-input-but"><input type="file" id="img" name="profilephoto" accept="image/*" onchange="displayname(this)">Load Image</label>   </label><br>
-    <input type="hidden" name="userphoto" id="userphoto">
-
+    <label for="img">Any image? <label class="custom-input-but"><input type="file" id="img" name="profilephoto" accept="image/*" onchange="displayname()">Load Image</label></label><br>
+    <p id="loadedimage">Load your image</p><br>
     <legend>Tell us something about yourself</legend>
     <textarea id="aboutme" name="aboutme" cols="50" rows="10"></textarea>
     <button type="submit" class="price">Registrate</button>

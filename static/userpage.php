@@ -6,7 +6,7 @@ $age = $age->diff(new DateTime($user["dob"]))->y;
 ?>
     <h2>
         <?php
-        echo "USER";
+        echo $user["status"];
         ?>
     </h2>
     <div class="trainermaininfo">
@@ -41,6 +41,7 @@ $age = $age->diff(new DateTime($user["dob"]))->y;
 
     </div>
     <h3>Schedule</h3>
+
 
     <div class="schedule">
 

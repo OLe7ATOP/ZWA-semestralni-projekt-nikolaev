@@ -28,6 +28,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("Location: registration.php");
         exit();
     }
+
+    $age = new DateTime();
+    $age = $age->diff(new DateTime($dob))->y;
+
     if(empty($gender)){
         $_SESSION["message"] = "Enter your gender";
         $err = true;
@@ -78,20 +82,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         "fname" => $firstname,
         "sname" => $secondname,
         "dob" => $dob,
+        "age" => $age->y,
         "gender" => $gender,
         "pass" => $passhash,
         "mail" => $mail,
         "status" => "customer"
     ];
 
-    if(isset($_POST['aboutme'])){
-        $data['aboutme'] = htmlspecialchars($_POST["aboutme"]);
-    }
-
-
-        htmlspecialchars($_POST["dob"]);
-
-    if(isset($_FILES['profilephoto'])) {
+    if(isset($_FILES['profilephoto']) && $_FILES['profilephoto']['tmp_name'] !== '') {
         $file = $_FILES['profilephoto'];
         $pictDir = __DIR__.'/pictures/userpictures/';
         if(!is_dir($pictDir)){
@@ -110,8 +108,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             header("Location: registration.php");
             exit();
         }
-    } else {
-        $data["photo"] = "";
+    }
+
+    if(isset($_POST['aboutme'])){
+        $data['aboutme'] = $_POST['aboutme'];
     }
 
     $filepath = __DIR__ . '\jsondb\userinfo.json';
@@ -135,6 +135,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $existingData = [];
     }
 
+    $data["id"] = sizeof($existingData) * 3 + 13;
+
     foreach ($existingData as $user){
         if($data["mail"] == $user["mail"]){
             $_SESSION["message"] = "This e-mail is already in use";
@@ -143,7 +145,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    $data["id"] = sizeof($existingData);
+
     $existingData[] = $data;
     file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     $_SESSION["user"] = json_encode($data, true);

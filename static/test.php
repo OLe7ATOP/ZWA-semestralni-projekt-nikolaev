@@ -32,21 +32,27 @@
 </head>
 <body>
 
-<form action="test-page.php" method="post" enctype="multipart/form-data">
-    <label class="custom-file-upload">
-        <input type="file" name="photo" id="fileInput" onchange="updateFileName(this)" required>
-        <span>Выбрать фотографию</span>
-    </label>
-    <input type="hidden" name="photo_name" id="photoName"> <!-- Скрытое поле -->
-    <button type="submit">Загрузить</button>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <label for="file">Choose a file:</label>
+    <input type="file" id="file" name="file" onchange="displayFileName()" accept="image/*">
+    <p id="file-name"></p> <!-- Здесь будет отображаться имя файла -->
+    <input type="submit" value="Upload">
 </form>
 <script>
-    function updateFileName(input) {
-        const fileName = input.files[0] ? input.files[0].name : "";
-        document.getElementById("photoName").value = fileName; // Устанавливаем имя в скрытое поле
-        input.nextElementSibling.textContent = fileName || "Выбрать фотографию"; // Обновляем текст кнопки
-    }
+    // Функция для отображения имени файла, когда пользователь выбирает файл
+    function displayFileName() {
+        const fileInput = document.getElementById('file');
+        const fileName = fileInput.files[0]?.name; // Получаем имя первого выбранного файла
+        const fileNameDisplay = document.getElementById('file-name');
 
+        // Если файл выбран, показываем его имя
+        if (fileName) {
+            fileNameDisplay.textContent = "Selected file: " + fileName;
+        } else {
+            fileNameDisplay.textContent = "No file selected";
+        }
+    }
 </script>
+
 </body>
 </html>
