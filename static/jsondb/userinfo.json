@@ -1,61 +1,5 @@
 {
-    "0": {
-        "id": 33,
-        "fname": "Kiril",
-        "sname": "Lozanov",
-        "dob": "2002-03-18",
-        "gender": "male",
-        "pass": "$2y$10$mnq.w.dnwbjrf6e6uuINmu89OyM6huNt6bN4rGSJzCce00W86a1pG",
-        "mail": "kiril@gmail.com",
-        "status": "trainer",
-        "photo": "userpic_67506cc8bd6622.54384923.jpg"
-    },
-    "1": {
-        "id": 34,
-        "fname": "Oleg",
-        "sname": "Nikolaev",
-        "dob": "2003-11-12",
-        "gender": "apache",
-        "pass": "$2y$10$BMyPC13kvLp7lsF3YuAkUuClSJyal3QINV0ceeqlClq\/Q59zpr2ma",
-        "mail": "nikolka@gmail.com",
-        "status": "customer",
-        "photo": "userpic_67506dd8a6f0b7.01596598.jpg"
-    },
-    "4": {
-        "id": 36,
-        "fname": "Ilia",
-        "sname": "Zhelnov",
-        "dob": "1913-05-27",
-        "gender": "male",
-        "pass": "$2y$10$vAOgTndlSPxiC0d1S05a3OwFaXi\/hzFWbSn1UaOg3I31yPlnjsZlS",
-        "mail": "zhelnov@gmail.com",
-        "status": "trainer"
-    },
-    "6": {
-        "id": 38,
-        "fname": "Krosh",
-        "sname": "Krolikov",
-        "dob": "1991-01-01",
-        "gender": "male",
-        "pass": "$2y$10$vbbJa3ucGdiJMIYeyJJYO.k018\/cumNzGun98uPJPUCTXvoH1YzNi",
-        "mail": "krosh@gmail.com",
-        "status": "trainer",
-        "aboutme": "Йолки иголки\r\nЁжик, я в зал записался"
-    },
-    "7": {
-        "id": 39,
-        "fname": "Hasbula",
-        "sname": "Magome",
-        "dob": "2003-05-12",
-        "gender": "apache",
-        "pass": "$2y$10$EIgQouDA2J8tZdYgTbPGaeWCvTnXuDcWkCouDInbl7DpDTcbfiMsS",
-        "mail": "hasbula@gmail.com",
-        "status": "customer",
-        "photo": "userpic_67583ab2aae857.93298032.jpg",
-        "aboutme": "Ас-саляму алейкум\r\nЯ Хасбула! Я хоть и ростом мал, да удал"
-    },
-    "8": {
-        "id": 40,
+    "40": {
         "fname": "админ",
         "sname": "админыч",
         "dob": "2003-11-12",
@@ -66,180 +10,152 @@
         "photo": "userpic_67583c53f286f4.88349806.png",
         "aboutme": "Мат на сервере - БАН\r\nмладше 14 лет - БАН\r\nБлины не есть.... без сгущенки"
     },
-    "9": {
-        "id": 9,
-        "fname": "Ultra",
-        "sname": "Tvar",
-        "dob": "0999-01-01",
-        "age": 1025,
-        "gender": "apache",
-        "pass": "$2y$10$lxkipRfIf6Of4sNg.Xe67eHVgLe8u5KaBTK0EH7PGaDwXCl5WLudm",
-        "mail": "tvar@gmail.com",
+    "67": {
+        "fname": "Billy",
+        "sname": "Herrington",
+        "dob": "1969-07-14",
+        "age": 55,
+        "gender": "male",
+        "pass": "$2y$10$UIWF5HZ7UuDZ8RjrXR6YM.s4JJffiV0hfw35kj70BbNEtCzy0OvzK",
+        "mail": "herrington@gmail.com",
         "status": "trainer",
-        "photo": "userpic_675844d16dc545.81227161.png",
-        "aboutme": "Hey, Alone here?)"
-    },
-    "10": {
-        "id": 10,
-        "fname": "Test",
-        "sname": "User",
-        "dob": "1745-06-13",
-        "age": 279,
-        "gender": "woman",
-        "pass": "$2y$10$K9R.22VHNdpuKmzN3jKSOeP6DfBc8I17kXKjZX.rIybhHJYaosgj.",
-        "mail": "test1@gmail.com",
-        "status": "customer",
-        "aboutme": "asdfasdfsdfdsfssfasdf"
-    },
-    "12": {
-        "id": 53,
-        "fname": "Oleg",
-        "sname": "Nikola",
-        "dob": "2007-07-19",
-        "age": 17,
-        "gender": "mechanic",
-        "pass": "$2y$10$nC1Wq78m2YgrwLpLQJ6r1.7uWBaD8LjxIvhCfgClIsGpSn8gejlZW",
-        "mail": "oleg03@gmail.com",
-        "status": "customer",
-        "aboutme": "sadfasdfsdaf"
-    },
-    "13": {
-        "id": 22,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2000-05-13",
-        "age": 24,
-        "gender": "male",
-        "pass": "$2y$10$l7BC.sdxl2C9RUgUGrZLke8IOtJGYzHQJDZuaB1rue3LE.semKR2K",
-        "mail": "test2@gmail.com",
-        "status": "customer",
-        "aboutme": ""
-    },
-    "14": {
-        "id": 23,
-        "fname": "kiki",
-        "sname": "koko",
-        "dob": "1111-11-11",
-        "age": 913,
-        "gender": "mechanic",
-        "pass": "$2y$10$4k0WD1U8OHnTXQvxuFcPfuNdhh7FH71.vbjhspEAm\/DkSzUfA9TQy",
-        "mail": "kiko@gmail.com",
-        "status": "customer",
-        "aboutme": "asdfasfasfasf"
-    },
-    "15": {
-        "id": 65,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2002-02-22",
-        "age": 22,
-        "gender": "male",
-        "pass": "$2y$10$6FTYEq.b7DPX6aKKkIYq6.y\/3tNmbmq.uGmJ4Lz4b8Q.KHwDmzrse",
-        "mail": "test3@gmail.com",
-        "status": "customer",
-        "photo": "userpic_67585e35a09722.91928161.png",
-        "aboutme": "asdfasdfasddf"
-    },
-    "16": {
-        "id": 66,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2004-04-04",
-        "age": 20,
-        "gender": "woman",
-        "pass": "$2y$10$EH.7XWbESHK2egJXXK6R7ex3ny4toyjWgbGTGGNST43qKKeENbhOi",
-        "mail": "test4@gmail.com",
-        "status": "trainer",
-        "aboutme": "asdfasdfasdfasdf"
-    },
-    "17": {
-        "id": 35,
-        "fname": "xxxxyy",
-        "sname": "yyyyyyy",
-        "dob": "1654-07-04",
-        "age": 370,
-        "gender": "male",
-        "pass": "$2y$10$hYD1l5cqcBJV0up.yPnAfOTEqoQKG48kIHPOgyrTCi0\/3ekoc42l6",
-        "mail": "xyxyxy@gmail.com",
-        "status": "customer",
-        "aboutme": "asdfasdfasddf"
-    },
-    "18": {
-        "id": 36,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2005-05-05",
-        "age": 19,
-        "gender": "male",
-        "pass": "$2y$10$0M.7p5QTzHzAqnU45RrHfuFX4d77H2OmPsSs\/iBKeS9NYz2.HQLU2",
-        "mail": "test5@gmail.com",
-        "status": "customer",
-        "photo": "userpic_67585f1d0fcd40.13541400.png",
-        "aboutme": "asdfasdfasddffasddf"
+        "trainings": {
+            "mon": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "dow": "mon"
+                }
+            ],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "dow": "fri"
+                }
+            ],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6761ac240c36e0.72308856.jpg",
+        "aboutme": "-The eyes are like two searchlights looking straight into the soul.\r\n-The muscles seem to have been carved by Zeus himself, but with a sense of Michelangelo's aesthetics.\r\n-A voice like thunder from heaven, capable of awakening courage even in those who have long forgotten about the rocking halls."
     },
     "19": {
-        "id": 78,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2006-06-06",
-        "age": 18,
-        "gender": "male",
-        "pass": "$2y$10$phvMz27tD7we9pSQi13zIeZeT.ntX73DD2BTHzetyj9MAUvzkHBU.",
-        "mail": "test6@gmail.com",
-        "status": "customer",
-        "photo": "userpic_67585fec53c720.21692859.png",
-        "aboutme": ""
-    },
-    "20": {
-        "id": 79,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2007-07-07",
-        "age": 17,
-        "gender": "male",
-        "pass": "$2y$10$yiuLPYYyDETMAWDDmMkCTe5tJ6PHX0JXzwGDH3fGrSsWPOXCs2cWK",
-        "mail": "test7@gmail.com",
-        "status": "customer",
-        "photo": "userpic_67586047a6f0e5.55509438.png",
-        "aboutme": "asdfasdfsdf"
-    },
-    "21": {
-        "id": 48,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2008-08-08",
-        "age": 16,
-        "gender": "male",
-        "pass": "$2y$10$s2mgQ5i.uGN.RUuFOOHUyOJ6frLJdQLdLAp\/c8hmMHBlcrtQaxKQS",
-        "mail": "test8@gmail.com",
-        "status": "customer",
-        "photo": "userpic_675861be23b111.91195105.png",
-        "aboutme": "This is 8's test! I hope it will go well"
-    },
-    "22": {
-        "id": 32,
-        "fname": "test",
-        "sname": "user",
-        "dob": "2009-09-09",
-        "age": 15,
-        "gender": "male",
-        "pass": "$2y$10$aH9PcCBzmSR6wR1h8Qj5Kuwl0J480oMHfbXk.IlMDcXhZ2l6ydQNa",
-        "mail": "test9@gmail.com",
-        "status": "trainer",
-        "photo": "userpic_67586298569013.70031587.png",
-        "aboutme": "test09"
-    },
-    "23": {
-        "id": 73,
-        "fname": "Ilia ",
-        "sname": "Timofeev",
-        "dob": "2003-06-11",
+        "fname": "Oleg",
+        "sname": "Nikolaev",
+        "dob": "2003-11-12",
         "age": 21,
         "gender": "male",
-        "pass": "$2y$10$0pv2B0MrDABRthmJ9iBPK.Tt3OtQBZG19BVkzcVF04cWESaa1zdH.",
-        "mail": "timofeev@gmail.com",
+        "pass": "$2y$10$joch6Cw\/wIvdUOK67AMy.uuzpDi\/br9qdNGyJiTv450\/ytO4KNqwW",
+        "mail": "nikola@gmail.com",
         "status": "customer",
-        "photo": "userpic_67586cc30180b6.54522579.png",
-        "aboutme": "Hello!\r\nI'm Ilia Timofeev! My friend is an Admin of this WebSite!)"
+        "trainings": {
+            "mon": [],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "dow": "fri",
+                    "trainer": {
+                        "fname": "Billy",
+                        "sname": "Herrington"
+                    }
+                }
+            ],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6761ad29438b87.45340588.jpg",
+        "aboutme": "Hi! I'm Oleg Nikolaev! Little Boss of this GYM! \r\n\r\n\r\nAutor of this WebSite By the way :)"
+    },
+    "22": {
+        "fname": "Arnold",
+        "sname": "Shwarznegger",
+        "dob": "1947-07-30",
+        "age": 77,
+        "gender": "male",
+        "pass": "$2y$10$YfPufvAVGpP1GhkU5lhYT.NpRmtcjsJYM.yWwW1ktjGgBY8djNSX.",
+        "mail": "shwarz@gmail.com",
+        "status": "trainer",
+        "trainings": {
+            "mon": [],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6761adce20e267.69985942.jpg",
+        "aboutme": "American bodybuilder, entrepreneur, film actor, producer, statesman and politician of Austrian origin. The 38th governor of California."
+    },
+    "25": {
+        "fname": "Jason",
+        "sname": "Statham",
+        "dob": "1967-07-26",
+        "age": 57,
+        "gender": "male",
+        "pass": "$2y$10$bRkEpp2hgIZxkBoYtj5\/M.hfuzUK876rg5NExxRgf9KkfzxEwEt.i",
+        "mail": "statham@gmail.com",
+        "status": "trainer",
+        "trainings": {
+            "mon": [],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6761ae0aacf696.45532025.jpg",
+        "aboutme": "The British actor, known for the films directed by Guy Ritchie, the dilogy \"Adrenaline\", as well as the series \"The Carrier\", \"The Expendables\" and \"Fast and Furious\"."
+    },
+    "28": {
+        "fname": "Rayan",
+        "sname": "Gosling",
+        "dob": "1980-11-12",
+        "age": 44,
+        "gender": "male",
+        "pass": "$2y$10$IqM0djni\/IBM\/hTlcb9s5OB8eXeXYujrSFYPTXx8xla3Qy7n6JAsi",
+        "mail": "gosling@gmail.com",
+        "status": "trainer",
+        "trainings": {
+            "mon": [],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6761ae848568e3.38471618.png",
+        "aboutme": "&quot;Райан Гослинг — это воплощение &quot;мужика, который ничего не хотел, но стал иконой&quot;. С виду он — спокойное озеро в горах, но в глубине этой воды плавают киты харизмы и сарказма.\r\n\r\nБуквально Я!"
+    },
+    "31": {
+        "fname": "Дмитрий ",
+        "sname": "Голубочкин",
+        "dob": "1969-09-26",
+        "age": 55,
+        "gender": "male",
+        "pass": "$2y$10$p1ch7WCnPlepy8GNAtDHUujOw3DahFCHtNYl89agsjVIdjAobNA5m",
+        "mail": "golubochkin@gmail.com",
+        "status": "trainer",
+        "trainings": {
+            "mon": [],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6761af8a8c4123.25122352.png",
+        "aboutme": "Советский и российский культурист, киноактёр. Абсолютный чемпион России по бодибилдингу 2006 года по версии ФБФР, многократный чемпион Москвы, серебряный призёр чемпионата Европы 2009 года. Мастер спорта России международного класса."
     }
 }

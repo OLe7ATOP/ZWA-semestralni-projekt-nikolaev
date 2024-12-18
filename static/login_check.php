@@ -8,7 +8,6 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" ){
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if(!file_exists($filepath)){
-
         $_SESSION["message"] = "Server DB access error";
         header("Location: login.php");
         exit();
@@ -23,11 +22,12 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" ){
 
 
     $finduser = false;
-    foreach($existingData as $user) {
+    foreach($existingData as $userid => $user) {
         if($user["mail"] === $mail){
             if(password_verify($password, $user["pass"])){
-                $_SESSION["user"] = json_encode($user, true);
+                $_SESSION["user"] = $user;
                 $_SESSION["status"] = $user["status"];
+                $_SESSION['id'] = $userid;
                 header("Location: userpage.php");
                 exit();
             } else {

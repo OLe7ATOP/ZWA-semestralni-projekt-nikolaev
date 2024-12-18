@@ -18,7 +18,7 @@ if(isset($_SESSION["message"])){
 }
 ?>
 <form action="save_changed_info.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="usertochangeid" value="<?php echo $user['id']; ?>" >
+        <input type="hidden" name="usertochangeid" value="<?php echo $_SESSION['usertochangeID'] ?>" >
     <label for="firstname">First name: <input type="text" id="firstname" name="fname" value="<?php echo $usertoedit['fname']?>" required></label>
     <label for="secondname">Second name: <input type="text" id="secondname" name="sname" value="<?php echo $usertoedit['sname']?>" required></label><br>
     <label for="dob">Date of birth: <input type="date" id="dob" name="dob" value="<?php echo $usertoedit['dob']?>" required></label><br>
@@ -33,15 +33,13 @@ if(isset($_SESSION["message"])){
         </select>
     </label><br>
     <label for="mail">E-mail: <input type="email" id="mail" name="mail" value="<?php echo $usertoedit['mail']?>" required></label><br>
-    <button class="price">RESET PASSWORD</button><br>   <!--СДЕЛАТЬ ОТДЕЛЬНОЙ КНОПКОЙ НА АДМИНЕ.ПХП-->
-    <p id="passcheck"></p><br>
-    <label for="imgdel">DELETE PHOTO<input type="checkbox" id="imgdel" class="price" name="imgdel" value="1"></label><br> <!--СДЕЛАТЬ ОТДЕЛЬНОЙ КНОПКОЙ НА АДМИНЕ.ПХП-->
+      <!--СДЕЛАТЬ ОТДЕЛЬНОЙ КНОПКОЙ НА АДМИНЕ.ПХП-->
     <legend>User Info: </legend>
     <?php
     if(isset($usertoedit["aboutme"])){
         echo "<textarea id=\"aboutme\" name=\"aboutme\" cols=\"50\" rows=\"10\" value=\"<?php echo {$usertoedit['aboutme']}?>\">{$usertoedit['aboutme']}</textarea> ";
     } else {
-        echo "<textarea id=\"aboutme\" name=\"aboutme\" cols=\"50\" rows=\"10\">Empty place</textarea> ";
+        echo "<textarea id=\"aboutme\" name=\"aboutme\" cols=\"50\" rows=\"10\"></textarea> ";
     }
     ?>
     <button type="submit" class="price">Save</button>

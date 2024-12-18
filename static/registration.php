@@ -10,16 +10,7 @@ require_once "header.php";
 <script src="scripts.js"></script>
 
 
-<?php
-if(isset($_SESSION["message"])){
-    $message = $_SESSION["message"];
-    echo "<div class='resultmessage'>";
-    echo "<h3>{$message}</h3><br>";
-    echo "<button onclick='closeMessage(this)' class='price'>OK</button>";
-    echo "</div>";
-    unset($_SESSION["message"]);
-}
-?>
+
 <form action="save_form.php" method="post" enctype="multipart/form-data">
     <label for="firstname">Your first name: <input type="text" id="firstname" name="fname" placeholder="Jason" required></label>
     <label for="secondname">Your second name: <input type="text" id="secondname" name="sname" placeholder="Statham" required></label><br>

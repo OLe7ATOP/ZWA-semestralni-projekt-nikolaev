@@ -29,6 +29,7 @@
         }
 
     </style>
+    <script src="scripts.js"></script>
 </head>
 <body>
 
@@ -38,21 +39,7 @@
     <p id="file-name"></p> <!-- Здесь будет отображаться имя файла -->
     <input type="submit" value="Upload">
 </form>
-<script>
-    // Функция для отображения имени файла, когда пользователь выбирает файл
-    function displayFileName() {
-        const fileInput = document.getElementById('file');
-        const fileName = fileInput.files[0]?.name; // Получаем имя первого выбранного файла
-        const fileNameDisplay = document.getElementById('file-name');
 
-        // Если файл выбран, показываем его имя
-        if (fileName) {
-            fileNameDisplay.textContent = "Selected file: " + fileName;
-        } else {
-            fileNameDisplay.textContent = "No file selected";
-        }
-    }
-</script>
-
+<button onclick="deletetraining()">CLICK HERE</button>
 </body>
 </html>

@@ -40,9 +40,9 @@ if(isset($_SESSION["message"])){
 }
 ?>
 
-<?php foreach ($existingData as $cust): ?>
+<?php foreach ($existingData as $custId => $cust): ?>
     <div class="userstring">
-    <div id="user_<?php echo $cust['id']; ?>" class="listofusersinfo">
+    <div id="user_<?php echo $custId; ?>" class="listofusersinfo">
         <div class="image-cont">
 
             <?php
@@ -56,14 +56,14 @@ if(isset($_SESSION["message"])){
             }
 
             if(!isset($cust['age'])) {
-                $age = new DateTime();
-                $age = $age->diff(new DateTime($user["dob"]))->y;
+                $today = new DateTime();
+                $age = $today->diff(new DateTime($cust["dob"]))->y;
             }
             ?>
 
         </div>
 
-        <p><?php echo "( {$cust['id']} )  ".$cust["fname"]." ".$cust["sname"]." "."[- {$cust['status']} -]"?> <br><br>
+        <p><?php echo "( $custId )  ".$cust["fname"]." ".$cust["sname"]." "."[- {$cust['status']} -]"?> <br><br>
 
         </p>
         <div class="dropdown">
@@ -75,9 +75,9 @@ if(isset($_SESSION["message"])){
 
     </div>
 
-        <?php if($user['id']!=$cust['id']): ?>
+        <?php if($_SESSION['id']!=$custId): ?>
         <form class="admineditplace" action="makeatrainer.php" method="post">
-            <input type="hidden" name="usertochangeid" value="<?php echo $cust['id']; ?>" >
+            <input type="hidden" name="usertochangeid" value="<?php echo $custId; ?>" >
             <button type='submit' name='action' value='edit'  class="editcustomerbut">EDIT</button>
             <button type='submit' name='action' value='resetpass'  class="editcustomerbut">RESET PASSWORD</button>
             <?php if($cust['status']=='customer'){

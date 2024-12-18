@@ -33,6 +33,9 @@ require_once "header.php";
 
 </div>
     <h3>Schedule</h3>
+    <div class="trainer-buttons">
+        <button>CREATE NEW TRAINING</button>
+    </div>
 
     <div class="schedule">
 
@@ -62,13 +65,16 @@ require_once "header.php";
         <div class="schedule-dayofweek">
             <h4>Fri</h4>
             <div class="schedule-items">
+                <button>delete</button>
                 <?php
                 if($trainer_spec != "gym"){
                     echo "<h5>Beginners</h5>";
                 }
                 ?>
                 <p>9:30 - 12:00 </p>
+                <!--
                 <p><?php echo $trainer_name?></p>
+                -->
             </div>
         </div>
         <div class="schedule-dayofweek">

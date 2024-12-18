@@ -32,3 +32,35 @@ function displayname(obj) {
     }
 }
 
+class Info{
+    dow;
+    time;
+    trainerid;
+
+    constructor(dow, time, trainerid) {
+        this.dow = dow
+        this.time = time
+        this.trainerid = trainerid
+    }
+}
+
+function deletetraining(dow, time, trainerid) {
+    const html = new XMLHttpRequest()
+    html.onload = ()    => {
+        if(html.status >=200 && html.status <300) {
+            const response = JSON.parse(html.responseText)
+            console.log(response)
+        }
+    }
+
+    new User()
+    const info = new Info(dow, time, trainerid);
+
+    html.open('POST', 'delete_training.php')
+    html.setRequestHeader('Content-Type', 'application/json')
+    html.send(JSON.stringify(info))
+    html.send('GET','userpage.php')
+}
+
+
+

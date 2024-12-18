@@ -78,7 +78,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     $data = [
-        "id" => 0,
         "fname" => $firstname,
         "sname" => $secondname,
         "dob" => $dob,
@@ -86,7 +85,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         "gender" => $gender,
         "pass" => $passhash,
         "mail" => $mail,
-        "status" => "customer"
+        "status" => "customer",
+        "trainings" => [
+            'mon' => [],
+            'tue' => [],
+            'wed' => [],
+            'thu' => [],
+            'fri' => [],
+            'sat' => [],
+            'sun' => []
+        ]
     ];
 
     if(isset($_FILES['profilephoto']) && $_FILES['profilephoto']['tmp_name'] !== '') {
@@ -135,7 +143,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $existingData = [];
     }
 
-    $data["id"] = sizeof($existingData) * 3 + 13;
 
     foreach ($existingData as $user){
         if($data["mail"] == $user["mail"]){
@@ -144,12 +151,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             exit();
         }
     }
+    $id = sizeof($existingData) * 3 + 13;
 
-
-    $existingData[] = $data;
+    $existingData[$id] = $data;
     file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    $_SESSION["user"] = json_encode($data, true);
+    $_SESSION["user"] = $data;
     $_SESSION["status"] = $data["status"];
+    $_SESSION['id'] = $id;
     header("Location: userpage.php");
     exit();
 

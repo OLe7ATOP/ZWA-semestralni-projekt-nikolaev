@@ -28,17 +28,17 @@ if(!isset($_POST['action'])) {
         }
         $userfound = false;
             if($action == "delete"){
-                $existingData = array_filter($existingData, function($user) use ($userid, &$userfound) {
-                    if($user['id'] == $userid) {
+                $existingData = array_filter($existingData, function($user, $requiredId) use ($userid, &$userfound) {
+                    if($requiredId == $userid) {
                         $userfound = true;
                         return false;
                     }
                     return true;
-                });
+                }, ARRAY_FILTER_USE_BOTH);
             }
             else {
-                foreach ($existingData as &$user) {
-                    if ($user['id'] == $userid) {
+                foreach ($existingData as $requiredId => &$user) {
+                    if ($requiredId == $userid) {
                         if ($action == "makeatrainer") {
                             $user['status'] = 'trainer';
                         }
@@ -56,6 +56,7 @@ if(!isset($_POST['action'])) {
                         }
                         if($action == 'edit') {
                             $_SESSION['usertochange'] = $user;
+                            $_SESSION['usertochangeID'] = $userid;
                             header("Location: editpage.php");
                             exit();
                         }
