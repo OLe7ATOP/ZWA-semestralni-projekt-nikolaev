@@ -22,7 +22,7 @@ session_start();
         if($_SESSION["status"] == "admin") {
             echo "<a href='admin.php'>List of customers</a> |<a href='userpage.php'> ADMIN </a>| <a href='logout.php'>Log Out</a>";
         } else {
-            echo "<a href='userpage.php'>[ {$user["status"]} ] {$user["fname"]} {$user["sname"]}</a> | <a href='logout.php'>Log Out</a>";
+            echo "<a href='userpage.php'>{$user["fname"]} {$user["sname"]}</a> | <a href='logout.php'>Log Out</a>";
         }
     }
     ?>

@@ -41,6 +41,7 @@ if(!isset($_POST['action'])) {
                     if ($requiredId == $userid) {
                         if ($action == "makeatrainer") {
                             $user['status'] = 'trainer';
+                            $user['spec'] = 'gym';
                         }
                         if ($action == "makeanadmin") {
                             $user['status'] = 'admin';

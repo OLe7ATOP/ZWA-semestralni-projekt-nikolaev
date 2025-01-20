@@ -45,7 +45,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     foreach ($existingData as $userid => &$someUser) {
         if ($userid == $customerid) {
             if(isset($training)) {
+                foreach($someUser['trainings'][$dowTo] as &$session){
+                    if($session['start'] <= $training['start'] && $session['end'] >= $training['start'] || $session['start'] <= $training['end'] && $session['end'] >= $training['end']){
+                        $_SESSION['message'] = "Oops... Seems like zou have another training this time";
+                        header("Location: userpage.php");
+                        exit();
+                    }
+                }
                 $someUser['trainings'][$dowTo][] = $training;
+                usort($someUser['trainings'][$dowTo], function ($a, $b) {
+                    return $a['start'] <=> $b['start'];
+                });
                 $_SESSION['user'] = $someUser;
                 $_SESSION['id'] = $userid;
                 file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));

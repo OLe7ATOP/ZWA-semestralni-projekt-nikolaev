@@ -27,7 +27,6 @@ require_once "header.php";
     <div class="dropdown">
         <ul>
             <li> <?php echo "<u>Age</u>:<br>{$trainer_age}"?></li>
-            <li><?php echo"<u>Experience</u>:<br> {$trainer_exp}"?></li>
         </ul>
     </div>
 

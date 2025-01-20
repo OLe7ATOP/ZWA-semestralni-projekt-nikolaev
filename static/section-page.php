@@ -1,4 +1,58 @@
 
+<?php
+$filepath = __DIR__ . '\jsondb\userinfo.json';
+
+if (file_exists($filepath)) {
+    $jsonContent = file_get_contents($filepath);
+    $existingData = json_decode($jsonContent, true);
+
+    if ($jsonContent === false) {
+        $_SESSION["message"] = "DB access error";
+        $err = true;
+        header("Location: mainpage.php");
+        exit();
+    }
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo "Ошибка декодирования JSON: " . json_last_error_msg();
+        $existingData = [];
+    }
+} else {
+    $existingData = [];
+}
+$pageSchedule = [
+    'mon' => [],
+    'tue' => [],
+    'wed' => [],
+    'thu' => [],
+    'fri' => [],
+    'sat' => [],
+    'sun' => []
+];
+
+foreach($existingData as $userfromDB){
+    if ($userfromDB['status'] == 'trainer' && $userfromDB['spec'] == $section) {
+        if (isset($userfromDB['trainings'])) {
+            foreach ($userfromDB['trainings'] as $dow => $training) {
+                foreach ($training as $train) {
+                    $finaltrainingObj['start'] = $train['start'];
+                    $finaltrainingObj['end'] = $train['end'];
+                    $finaltrainingObj['trainer']['fname'] = $userfromDB['fname'];
+                    $finaltrainingObj['trainer']['sname'] = $userfromDB['sname'];
+                    $finaltrainingObj['spec'] = $section;
+                    $pageSchedule[$dow][] = $finaltrainingObj;
+                }
+                usort($pageSchedule[$dow], function ($a, $b) {
+                return $a['start'] <=> $b['start'];
+            });
+            }
+        }
+
+    }
+
+}
+?>
+
 <h3 class="page-name">
     <?php echo $title; ?>
 </h3>
@@ -19,54 +73,21 @@
 
 <div class="schedule">
 
+    <?php foreach ($pageSchedule as $dow => $trainlist): ?>
     <div class="schedule-dayofweek">
-        <h4>Mon</h4>
-        <div class="schedule-items">
-            <h5>Beginners</h5>
-            <p>13:45 - 15:45</p>
-            <p>Alex Makaka</p>
-        </div>
-    </div>
-    <div class="schedule-dayofweek">
-        <h4>Tue</h4>
-
-    </div>
-    <div class="schedule-dayofweek">
-        <h4>Wed</h4>
-        <div class="schedule-items">
-            <h5>Advanced</h5>
-            <p>10:00 - 12:00</p>
-            <p>Khabib Nurmagomedov</p>
-        </div>
-        <div class="schedule-items">
-            <h5>Beginners</h5>
-            <p>13:00 - 15:00</p>
-            <p>Alex Makaka</p>
-        </div>
-    </div>
-    <div class="schedule-dayofweek">
-        <h4>Thu</h4>
-    </div>
-    <div class="schedule-dayofweek">
-        <h4>Fri</h4>
-        <div class="schedule-items">
-            <h5>Beginners</h5>
-            <p>13:45 - 15:45</p>
-            <p>Alex Makaka</p>
-        </div>
-    </div>
-    <div class="schedule-dayofweek">
-        <h4>Sat</h4>
-        <div class="schedule-items">
-            <h5>Advanced</h5>
-            <p>7:00 - 9:00</p>
-            <p>Khabib Nurmagomedov</p>
-        </div>
-    </div>
-    <div class="schedule-dayofweek">
-        <h4>Sun</h4>
-
-    </div>
+        <h4><?php echo ucfirst($dow)?></h4>
+        <?php foreach ($trainlist as $training): ?>
+            <form class="schedule-items" method="post">
+                <p><?php echo $training['start'] . " - " . $training['end']; ?></p>
+                <p>
+                    <?php
+                        echo $training['trainer']['fname'] . " " . $training['trainer']['sname'];
+                    ?>
+                </p>
+            </form>
+        <?php endforeach; ?>
 
 
 </div>
+
+    <?php endforeach;?>

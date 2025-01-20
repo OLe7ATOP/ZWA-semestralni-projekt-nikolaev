@@ -3,7 +3,6 @@ require_once "header.php";
 $usertoedit = $_SESSION['usertochange'];
 ?>
 
-<h2 class="regheader">Become a part of our BIG family</h2>
 <script src="scripts.js"></script>
 
 
@@ -32,8 +31,16 @@ if(isset($_SESSION["message"])){
             <option value="other" <?php echo ($usertoedit['gender'] == 'other') ? 'selected' : ''; ?>>Other</option>
         </select>
     </label><br>
+    <?php if($usertoedit['status'] == 'trainer' && isset($usertoedit['spec'])): ?>
+    <label for="spec">Specialisation?
+        <select id="spec" name="spec" required>
+            <option value="gym" <?php echo ($usertoedit['spec'] == 'gym') ? 'selected' : ''; ?>>GYM</option>
+            <option value="kickbox" <?php echo ($usertoedit['spec'] == 'kickbox') ? 'selected' : ''; ?>>Kick-Boxing</option>
+            <option value="mma" <?php echo ($usertoedit['spec'] == 'mma') ? 'selected' : ''; ?>>MMA</option>
+            </select>
+    </label><br>
+    <?php endif;?>
     <label for="mail">E-mail: <input type="email" id="mail" name="mail" value="<?php echo $usertoedit['mail']?>" required></label><br>
-      <!--СДЕЛАТЬ ОТДЕЛЬНОЙ КНОПКОЙ НА АДМИНЕ.ПХП-->
     <legend>User Info: </legend>
     <?php
     if(isset($usertoedit["aboutme"])){

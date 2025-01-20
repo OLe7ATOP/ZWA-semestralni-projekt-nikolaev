@@ -63,7 +63,13 @@ if(isset($_SESSION["message"])){
 
         </div>
 
-        <p><?php echo "( $custId )  ".$cust["fname"]." ".$cust["sname"]." "."[- {$cust['status']} -]"?> <br><br>
+        <p><?php
+            if($cust['status'] == 'trainer' and isset($cust['spec'])) {
+                echo "( $custId )  ".$cust["fname"]." ".$cust["sname"]." "."[- {$cust['status']} -] ({$cust['spec']})";
+            } else {
+                echo "( $custId )  ".$cust["fname"]." ".$cust["sname"]." "."[- {$cust['status']} -]";
+            }
+            ?> <br><br>
 
         </p>
         <div class="dropdown">

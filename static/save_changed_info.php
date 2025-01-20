@@ -9,6 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $mail = htmlspecialchars($_POST["mail"]);
     $aboutme = htmlspecialchars($_POST["aboutme"]);
     $usertoeditID = htmlspecialchars($_POST["usertochangeid"]);
+    $spec = htmlspecialchars($_POST["spec"]);
 
 
     $filepath = __DIR__ . '\jsondb\userinfo.json';
@@ -39,6 +40,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $userDBInfo['gender'] = $gender;
             $userDBInfo['mail'] = $mail;
             $userDBInfo['aboutme'] = $aboutme;
+            if($userDBInfo['status'] == 'trainer'){
+                $userDBInfo['spec'] = $spec;
+            }
             break;
         }
     }

@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $data = [
         "start" => $start,
         "end" => $end,
-        "dow" => $dow
+        "dow" => $dow,
     ];
 
 

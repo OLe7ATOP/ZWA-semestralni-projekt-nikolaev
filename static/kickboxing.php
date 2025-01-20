@@ -8,6 +8,7 @@ $page_text = "Kickboxing is a full-contact hybrid martial art and boxing type ba
     so as for people, who already have experience in this sport.";
 
 $photo_name = "kickboxing";
+$section = "kickbox";
 require_once "section-page.php";
 ?>
 <?php

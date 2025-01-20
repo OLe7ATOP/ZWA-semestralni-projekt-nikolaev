@@ -33,6 +33,18 @@ if(isset($_GET["id"])){
 }
 ?>
 
+<?php
+if(isset($_SESSION["message"])){
+    $message = $_SESSION["message"];
+    echo "<div class='resultmessage'>";
+    echo "<h3>{$message}</h3><br>";
+    echo "<button onclick='closeMessage(this)' class='price'>OK</button>";
+    echo "</div>";
+    unset($_SESSION["message"]);
+}
+?>
+
+
 <?php if(!isset($visitedTrainer)) : ?>
     <h2>
         <?php
@@ -67,7 +79,6 @@ if(isset($_GET["id"])){
         <div class="dropdown">
             <ul>
                 <li> <?php echo "<u>Age</u>:<br>{$age}"?></li>
-                <li><?php echo"<u>Experience</u>:<br> "?></li>
             </ul>
         </div>
 
@@ -87,7 +98,6 @@ if(isset($_GET["id"])){
             <h4><?php echo ucfirst($dow)?></h4>
             <?php foreach ($trainlist as $training): ?>
                 <form class="schedule-items" action="delete_training.php" method="post">
-                    <h3>GYM</h3>
                     <p><?php echo $training['start'] . " - " . $training['end']; ?></p>
                     <p>
                         <?php if ($user['status'] == 'trainer') {
@@ -150,7 +160,6 @@ if(isset($_GET["id"])){
         <div class="dropdown">
             <ul>
                 <li> <?php echo "<u>Age</u>:<br>{$age}"?></li>
-                <li><?php echo"<u>Experience</u>:<br> "?></li>
             </ul>
         </div>
 
@@ -164,7 +173,7 @@ if(isset($_GET["id"])){
                     <h4><?php echo ucfirst($dow)?></h4>
                     <?php foreach ($trainlist as $training): ?>
                         <form class="schedule-items" action="signuptraining.php" method="post">
-                            <h3>GYM</h3>
+                            <h3><?php echo ucwords($visitedTrainer['spec']);?></h3>
                             <p><?php echo $training['start'] . " - " . $training['end']; ?></p>
                             <p>
                                 <?php echo $visitedTrainer['fname'] . " " . $visitedTrainer['sname']; ?>

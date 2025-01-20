@@ -274,7 +274,7 @@ foreach ($existingData as $userid => $userfromDB) {
         <li>WhatsApp:<a> +123456789</a></li>
         <li>Mail: <a href="mailto:example@mail.com">example@mail.com</a> </li>
         <li>Telephone Number:<a> +123456789</a></li>
-        <li>Address: <br /> <a href="https://www.google.com/maps/search/Tan��c�+d�m/@50.0754869,14.4120188,17z/data=!3m1!4b1" target="_blank">Jir�skovo n�m. 1981/6,<br /> 120 00 Nov� M�sto</a></li>
+        <li>Address: <br /> <a href="https://maps.app.goo.gl/ahgU1wNn7dWDng9t9" target="_blank">Jiráskovo nám. 1981/6, 120 00 Nové Město</a></li>
     </ul>
 </div>
 

@@ -19,6 +19,7 @@
         "pass": "$2y$10$UIWF5HZ7UuDZ8RjrXR6YM.s4JJffiV0hfw35kj70BbNEtCzy0OvzK",
         "mail": "herrington@gmail.com",
         "status": "trainer",
+        "spec": "gym",
         "trainings": {
             "mon": [
                 {
@@ -41,7 +42,7 @@
             "sun": []
         },
         "photo": "userpic_6761ac240c36e0.72308856.jpg",
-        "aboutme": "-The eyes are like two searchlights looking straight into the soul.\r\n-The muscles seem to have been carved by Zeus himself, but with a sense of Michelangelo's aesthetics.\r\n-A voice like thunder from heaven, capable of awakening courage even in those who have long forgotten about the rocking halls."
+        "aboutme": "-The eyes are like two searchlights looking straight into the soul.\r\n-The muscles seem to have been carved by Zeus himself, but with a sense of Michelangelo&#039;s aesthetics.\r\n-A voice like thunder from heaven, capable of awakening courage even in those who have long forgotten about the rocking halls."
     },
     "19": {
         "fname": "Oleg",
@@ -53,26 +54,66 @@
         "mail": "nikola@gmail.com",
         "status": "customer",
         "trainings": {
-            "mon": [],
-            "tue": [],
-            "wed": [],
-            "thu": [],
-            "fri": [
+            "mon": [
                 {
-                    "start": "12:00",
-                    "end": "14:00",
-                    "dow": "fri",
+                    "start": "18:00",
+                    "end": "20:00",
+                    "dow": "mon",
                     "trainer": {
                         "fname": "Billy",
                         "sname": "Herrington"
                     }
                 }
             ],
-            "sat": [],
+            "tue": [],
+            "wed": [
+                {
+                    "start": "08:00",
+                    "end": "12:00",
+                    "dow": "wed",
+                    "trainer": {
+                        "fname": "Jean-Claude",
+                        "sname": "Van Damme"
+                    }
+                },
+                {
+                    "start": "17:00",
+                    "end": "19:30",
+                    "dow": "wed",
+                    "trainer": {
+                        "fname": "Rayan",
+                        "sname": "Gosling"
+                    }
+                }
+            ],
+            "thu": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "dow": "thu",
+                    "trainer": {
+                        "fname": "Arnold",
+                        "sname": "Shwarznegger"
+                    }
+                }
+            ],
+            "fri": [],
+            "sat": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "dow": "sat",
+                    "trainer": {
+                        "fname": "Jean-Claude",
+                        "sname": "Van Damme"
+                    }
+                }
+            ],
             "sun": []
         },
         "photo": "userpic_6761ad29438b87.45340588.jpg",
-        "aboutme": "Hi! I'm Oleg Nikolaev! Little Boss of this GYM! \r\n\r\n\r\nAutor of this WebSite By the way :)"
+        "aboutme": "Hi! I'm Oleg Nikolaev! Little Boss of this GYM! \r\n\r\n\r\nAutor of this WebSite By the way :)",
+        "spec": "gym"
     },
     "22": {
         "fname": "Arnold",
@@ -83,14 +124,39 @@
         "pass": "$2y$10$YfPufvAVGpP1GhkU5lhYT.NpRmtcjsJYM.yWwW1ktjGgBY8djNSX.",
         "mail": "shwarz@gmail.com",
         "status": "trainer",
+        "spec": "gym",
         "trainings": {
             "mon": [],
-            "tue": [],
+            "tue": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "dow": "tue"
+                }
+            ],
             "wed": [],
-            "thu": [],
+            "thu": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "dow": "thu"
+                }
+            ],
             "fri": [],
-            "sat": [],
-            "sun": []
+            "sat": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "dow": "sat"
+                }
+            ],
+            "sun": [
+                {
+                    "start": "09:00",
+                    "end": "10:00",
+                    "dow": "sun"
+                }
+            ]
         },
         "photo": "userpic_6761adce20e267.69985942.jpg",
         "aboutme": "American bodybuilder, entrepreneur, film actor, producer, statesman and politician of Austrian origin. The 38th governor of California."
@@ -104,13 +170,32 @@
         "pass": "$2y$10$bRkEpp2hgIZxkBoYtj5\/M.hfuzUK876rg5NExxRgf9KkfzxEwEt.i",
         "mail": "statham@gmail.com",
         "status": "trainer",
+        "spec": "mma",
         "trainings": {
-            "mon": [],
+            "mon": [
+                {
+                    "start": "08:00",
+                    "end": "09:30",
+                    "dow": "mon"
+                }
+            ],
             "tue": [],
-            "wed": [],
+            "wed": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "dow": "wed"
+                }
+            ],
             "thu": [],
             "fri": [],
-            "sat": [],
+            "sat": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "dow": "sat"
+                }
+            ],
             "sun": []
         },
         "photo": "userpic_6761ae0aacf696.45532025.jpg",
@@ -125,12 +210,31 @@
         "pass": "$2y$10$IqM0djni\/IBM\/hTlcb9s5OB8eXeXYujrSFYPTXx8xla3Qy7n6JAsi",
         "mail": "gosling@gmail.com",
         "status": "trainer",
+        "spec": "kickbox",
         "trainings": {
-            "mon": [],
+            "mon": [
+                {
+                    "start": "10:00",
+                    "end": "11:30",
+                    "dow": "mon"
+                }
+            ],
             "tue": [],
-            "wed": [],
+            "wed": [
+                {
+                    "start": "17:00",
+                    "end": "19:30",
+                    "dow": "wed"
+                }
+            ],
             "thu": [],
-            "fri": [],
+            "fri": [
+                {
+                    "start": "15:00",
+                    "end": "17:00",
+                    "dow": "fri"
+                }
+            ],
             "sat": [],
             "sun": []
         },
@@ -146,16 +250,75 @@
         "pass": "$2y$10$p1ch7WCnPlepy8GNAtDHUujOw3DahFCHtNYl89agsjVIdjAobNA5m",
         "mail": "golubochkin@gmail.com",
         "status": "trainer",
+        "spec": "gym",
         "trainings": {
             "mon": [],
-            "tue": [],
+            "tue": [
+                {
+                    "start": "17:00",
+                    "end": "20:00",
+                    "dow": "tue"
+                }
+            ],
             "wed": [],
             "thu": [],
             "fri": [],
-            "sat": [],
+            "sat": [
+                {
+                    "start": "13:30",
+                    "end": "16:30",
+                    "dow": "sat"
+                }
+            ],
             "sun": []
         },
         "photo": "userpic_6761af8a8c4123.25122352.png",
         "aboutme": "Советский и российский культурист, киноактёр. Абсолютный чемпион России по бодибилдингу 2006 года по версии ФБФР, многократный чемпион Москвы, серебряный призёр чемпионата Европы 2009 года. Мастер спорта России международного класса."
+    },
+    "34": {
+        "fname": "Jean-Claude",
+        "sname": "Van Damme",
+        "dob": "1960-10-18",
+        "age": 64,
+        "gender": "male",
+        "pass": "$2y$10$QV2GNqAsXcMdJgu6YrRffef3rc8g.v37EouOE2EttWcCNdVC2x4\/K",
+        "mail": "vandam@gmail.com",
+        "status": "trainer",
+        "trainings": {
+            "mon": [
+                {
+                    "start": "15:10",
+                    "end": "17:30",
+                    "dow": "mon"
+                }
+            ],
+            "tue": [],
+            "wed": [
+                {
+                    "start": "08:00",
+                    "end": "12:00",
+                    "dow": "wed"
+                }
+            ],
+            "thu": [],
+            "fri": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "dow": "fri"
+                }
+            ],
+            "sat": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "dow": "sat"
+                }
+            ],
+            "sun": []
+        },
+        "photo": "userpic_6781ec9ab55527.15295847.jpg",
+        "aboutme": "Belgian martial artist and actor.",
+        "spec": "kickbox"
     }
 }
