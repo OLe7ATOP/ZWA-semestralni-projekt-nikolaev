@@ -1,32 +1,27 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 $userfromsession = $_SESSION['user'];
 
+/*
+ * File for saving new training
+ */
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    //Getting the data from the POST request
     $start = htmlspecialchars($_POST["time1"]);
     $end = htmlspecialchars($_POST["time2"]);
     $dow = htmlspecialchars($_POST["dow"]);
 
 
-    if(empty($start)){
-        $_SESSION["message"] = "Enter start of the training";
-        $err = true;
-        header("Location: createtraining.php");
-        exit();
-    }
-    if(empty($end)){
-        $_SESSION["message"] = "Enter end of the training";
-        $err = true;
-        header("Location: createtraining.php");
-        exit();
-    }
-    if(empty($dow)){
-        $_SESSION["message"] = "Enter Day of the training";
-        $err = true;
-        header("Location: createtraining.php");
+    if(empty($start) || empty($end) || empty($dow)){
+        echo json_encode(["status" => "error", "message" => "Feel all the fields are required."]);
         exit();
     }
 
+
+    //Converting the data to the required form
     $data = [
         "start" => $start,
         "end" => $end,
@@ -34,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ];
 
 
+    //Download DB
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if (file_exists($filepath)) {
@@ -49,13 +45,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if (json_last_error() !== JSON_ERROR_NONE) {
 
-            $_SESSION["message"] = "Ошибка декодирования JSON: " . json_last_error_msg();
-            $err = true;
-            header("Location: userpage.php");
+            echo json_encode(["status" => "error", "message" => "JSON decoding err"]);
             exit();
         }
     }
 
+    //Getting required user and saving the new training to his list
     foreach($existingData as $userid => &$userinfo){
         if ($userid == $_SESSION['id']) {
             if (!isset($userinfo['trainings'])) {
@@ -81,13 +76,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     }
 
+    //Saving the data
     file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    header("Location: userpage.php");
+    echo json_encode(["status" => "success", "redirect" => "userpage.php"]);
     exit();
 
-
 }   else {
-    $_SESSION["message"] = "UNKNOWN ERROR";
-    header("Location: userpage.php");
+    echo json_encode(["status" => "error", "message" => "Unknown error"]);
     exit();
 }

@@ -1,21 +1,28 @@
 <?php
 require_once "header.php";
 ?>
+<!-- Header file -->
+
+<!--
+Web Page for logging in
+-->
+
+
 
 <h2 class="regheader">Login</h2>
-<script src="scripts.js"></script>
 
-<?php
-if(isset($_SESSION["message"])){
-    $message = $_SESSION["message"];
-    echo "<div class='resultmessage'>";
-    echo "<h3>{$message}</h3><br>";
-    echo "<button onclick='closeMessage(this)' class='price'>OK</button>";
-    echo "</div>";
-    unset($_SESSION["message"]);
-}
-?>
-<form action="login_check.php" method="post" class="login">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="loginscript.js"></script>
+
+
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p id="modal-message"></p>
+    </div>
+</div>
+
+<form action="login_check.php" method="post" class="login" id="form">
     <label for="mail">E-mail:</label>
     <input type="email" id="mail" name="mail" placeholder="example@your.mail" required>
     <label for="password">Set password:</label>
@@ -24,6 +31,8 @@ if(isset($_SESSION["message"])){
 </form>
 
 
+
+<!-- Footer file -->
 <?php
 require_once "footer.php";
 ?>

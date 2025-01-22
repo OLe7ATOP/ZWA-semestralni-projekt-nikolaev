@@ -1,5 +1,11 @@
 <?php
 require_once "header.php";
+
+/*
+ * Web page for displaying user's page
+ */
+
+//Download DB
 if(isset($_GET["id"])){
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
@@ -22,6 +28,7 @@ if(isset($_GET["id"])){
         $existingData = [];
     }
 
+    //If visited page is not the user's one, than it saving trainer's info
         foreach ($existingData as $userid => $userfromDB) {
             if ($userid == htmlspecialchars($_GET["id"])) {
                 $visitedTrainer = $userfromDB;
@@ -33,17 +40,17 @@ if(isset($_GET["id"])){
 }
 ?>
 
-<?php
-if(isset($_SESSION["message"])){
-    $message = $_SESSION["message"];
-    echo "<div class='resultmessage'>";
-    echo "<h3>{$message}</h3><br>";
-    echo "<button onclick='closeMessage(this)' class='price'>OK</button>";
-    echo "</div>";
-    unset($_SESSION["message"]);
-}
-?>
+<!-- Error message -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="userpagescript.js"></script>
 
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
 
 <?php if(!isset($visitedTrainer)) : ?>
     <h2>
@@ -83,6 +90,13 @@ if(isset($_SESSION["message"])){
         </div>
 
     </div>
+<!--
+Changing parts of the page depending on the user's status:
+ - Administrator doesn't have a schedule
+ - Trainer's schedule have a button "Add training"
+    and trainings have button "DELETE"
+ - Customer's trainings have a button "SIGN OFF"
+-->
 <?php if($user['status']!='admin'): ?>
     <h3>Schedule</h3>
         <?php if($user['status'] == 'trainer'): ?>
@@ -172,7 +186,7 @@ if(isset($_SESSION["message"])){
                 <div class="schedule-dayofweek">
                     <h4><?php echo ucfirst($dow)?></h4>
                     <?php foreach ($trainlist as $training): ?>
-                        <form class="schedule-items" action="signuptraining.php" method="post">
+                        <form id="form" class="schedule-items" action="signuptraining.php" method="post">
                             <h3><?php echo ucwords($visitedTrainer['spec']);?></h3>
                             <p><?php echo $training['start'] . " - " . $training['end']; ?></p>
                             <p>
@@ -196,6 +210,9 @@ if(isset($_SESSION["message"])){
 
 
 <?php endif;?>
+
+
+<!-- Footer file -->
 <?php
 require_once "footer.php";
 ?>

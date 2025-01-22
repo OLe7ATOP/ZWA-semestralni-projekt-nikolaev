@@ -1,11 +1,18 @@
+
+<!--
+Web page for editing user's info.
+Available for administrator only
+-->
+
+
+<!-- Header file-->
 <?php
 require_once "header.php";
 $usertoedit = $_SESSION['usertochange'];
 ?>
 
-<script src="scripts.js"></script>
 
-
+<!-- Err message form-->
 <?php
 if(isset($_SESSION["message"])){
     $message = htmlspecialchars($_SESSION["message"]);
@@ -16,6 +23,8 @@ if(isset($_SESSION["message"])){
     unset($_SESSION["message"]);
 }
 ?>
+
+<!-- Form for editing data-->
 <form action="save_changed_info.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="usertochangeid" value="<?php echo $_SESSION['usertochangeID'] ?>" >
     <label for="firstname">First name: <input type="text" id="firstname" name="fname" value="<?php echo $usertoedit['fname']?>" required></label>
@@ -53,6 +62,8 @@ if(isset($_SESSION["message"])){
 </form>
 
 
+
+<!-- Footer file -->
 <?php
 require_once "footer.php";
 ?>

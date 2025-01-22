@@ -1,7 +1,12 @@
 <?php
 
+/*
+ * Functional page for saving changed user to DB
+ */
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+    //Getting the entered data
     $firstname = htmlspecialchars($_POST["fname"]);
     $secondname = htmlspecialchars($_POST["sname"]);
     $dob = htmlspecialchars($_POST["dob"]);
@@ -12,6 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $spec = htmlspecialchars($_POST["spec"]);
 
 
+    //Download DB
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if (file_exists($filepath)) {
@@ -31,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    $aga = "false";
+    //Adding info to the list of users
     foreach ($existingData as $userDBID => &$userDBInfo) {
         if($userDBID == $usertoeditID){
             $userDBInfo['fname'] = $firstname;
@@ -47,6 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
+    //Saving the data
     file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     header("Location: admin.php");
     exit();

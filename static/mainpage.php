@@ -2,6 +2,13 @@
 require_once "header.php";
 ?>
 
+<!-- Header file -->
+
+<!--
+Main page of the WebSite
+-->
+
+<!-- DB download-->
 <?php
 $filepath = __DIR__ . '\jsondb\userinfo.json';
 
@@ -17,13 +24,13 @@ if (file_exists($filepath)) {
     }
 
     if (json_last_error() !== JSON_ERROR_NONE) {
-        echo "Ошибка декодирования JSON: " . json_last_error_msg();
+        echo "JSON Decoding Err: " . json_last_error_msg();
         $existingData = [];
     }
 } else {
     $existingData = [];
 }
-
+//Sorting for the trainers
 $trainerlist = [];
 foreach ($existingData as $userid => $userfromDB) {
     if($userfromDB['status'] == 'trainer'){
@@ -99,6 +106,7 @@ foreach ($existingData as $userid => $userfromDB) {
 <h2>Our trainers</h2>
 <div class="trainers">
 
+    <!-- Trainer list -->
     <?php for ($i=0;$i<sizeof($trainerlist); $i+=2) :?>
         <div class="trener1">
             <a href="userpage.php?id=<?php echo $trainerlist[$i]['id'];?>">
@@ -279,6 +287,7 @@ foreach ($existingData as $userid => $userfromDB) {
 </div>
 
 
+<!-- Footer file -->
 <?php
 require_once "footer.php";
 ?>

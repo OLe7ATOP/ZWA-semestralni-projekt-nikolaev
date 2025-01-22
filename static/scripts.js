@@ -1,16 +1,8 @@
-function checkpass(){
-    var pass = document.getElementById("password").value;
-    var pass_check = document.getElementById("reppassword").value;
-    var result = document.getElementById("passcheck");
-    if(pass !== pass_check) {
-        result.textContent = "Passwords are not the same!";
-        result.style.color = "red";
-    } else {
-        result.textContent = "Passwords are equal";
-        result.style.color = "green";
-    }
-}
 
+/**
+ *
+ * @param obj
+ */
 function displayname(obj) {
     const fileInput = document.getElementById('img');
     const fileName = fileInput.files[0]?.name;
@@ -23,3 +15,8 @@ function displayname(obj) {
         fileNameDisplay.textContent = "No file selected";
     }
 }
+
+
+/**
+ *
+ */

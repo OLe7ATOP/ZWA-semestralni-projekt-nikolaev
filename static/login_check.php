@@ -1,15 +1,22 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 if( $_SERVER["REQUEST_METHOD"] == "POST" ){
+    // Getting data through the POST request
     $mail = $_POST["mail"];
     $password = $_POST["pass"];
 
+    if (empty($mail) || empty($password)) {
+        echo json_encode(["status" => "error", "message" => "Feel all the fields are required."]);
+        exit();
+    }
+
+    // Downloading DB
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if(!file_exists($filepath)){
-        $_SESSION["message"] = "Server DB access error";
-        header("Location: login.php");
+        echo json_encode(["status" => "error", "message" => "DB access error"]);
         exit();
     }
 
@@ -23,23 +30,24 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" ){
 
     $finduser = false;
     foreach($existingData as $userid => $user) {
+        //Checking for the required mail in the system
         if($user["mail"] === $mail){
+
+            // Verification of the password
             if(password_verify($password, $user["pass"])){
                 $_SESSION["user"] = $user;
                 $_SESSION["status"] = $user["status"];
                 $_SESSION['id'] = $userid;
-                header("Location: userpage.php");
+                echo json_encode(["status" => "success", "redirect" => "userpage.php"]);
                 exit();
             } else {
-                $_SESSION["message"] = "Wrong password";
-                header("Location: login.php");
+                echo json_encode(["status" => "error", "message" => "Wrong password"]);
                 exit();
             }
         }
     }
     if(!$finduser){
-        $_SESSION["message"] = "User does not exist";
-        header("Location: login.php");
+        echo json_encode(["status" => "error", "message" => "User does not exist"]);
         exit();
     }
 

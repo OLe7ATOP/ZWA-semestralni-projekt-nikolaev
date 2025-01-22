@@ -1,15 +1,29 @@
 <?php
-?>
-<?php
 require_once "header.php";
 ?>
+<!-- Header file -->
+
+<!--
+ Web page for adding new
+ trainings. For trainers only.
+-->
 
 
 
 <h2 class="regheader">Create new training</h2>
-<script src="scripts.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="trainingscript.js"></script>
 
 
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p id="modal-message"></p>
+    </div>
+</div>
+
+<!-- Message form -->
 <?php
 if(isset($_SESSION["message"])){
     $message = $_SESSION["message"];
@@ -20,7 +34,9 @@ if(isset($_SESSION["message"])){
     unset($_SESSION["message"]);
 }
 ?>
-<form action="savetraining.php" method="post" enctype="multipart/form-data">
+
+<!-- Training form -->
+<form action="savetraining.php" id="form" method="post" enctype="multipart/form-data">
     <label for="dow">Day of the week?
         <select id="dow" name="dow" required>
             <option value="mon">Mon</option>
@@ -39,6 +55,7 @@ if(isset($_SESSION["message"])){
 </form>
 
 
+<!-- Footer file -->
 <?php
 require_once "footer.php";
 ?>

@@ -1,6 +1,13 @@
 
 <?php
+
+/*
+ * Pattern for the sections pages
+ */
+
+ //Download DB
 $filepath = __DIR__ . '\jsondb\userinfo.json';
+
 
 if (file_exists($filepath)) {
     $jsonContent = file_get_contents($filepath);
@@ -20,6 +27,11 @@ if (file_exists($filepath)) {
 } else {
     $existingData = [];
 }
+
+/*
+ * Schedule for this section is made
+ * out of trainers schedules
+ */
 $pageSchedule = [
     'mon' => [],
     'tue' => [],
@@ -30,6 +42,7 @@ $pageSchedule = [
     'sun' => []
 ];
 
+//Adding trainings to the list
 foreach($existingData as $userfromDB){
     if ($userfromDB['status'] == 'trainer' && $userfromDB['spec'] == $section) {
         if (isset($userfromDB['trainings'])) {
@@ -73,6 +86,7 @@ foreach($existingData as $userfromDB){
 
 <div class="schedule">
 
+<!-- Printing trainings-->
     <?php foreach ($pageSchedule as $dow => $trainlist): ?>
     <div class="schedule-dayofweek">
         <h4><?php echo ucfirst($dow)?></h4>

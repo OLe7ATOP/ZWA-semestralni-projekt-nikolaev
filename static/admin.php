@@ -1,8 +1,18 @@
 <?php
 require_once "header.php";
 ?>
+    <!-- Header file-->
+
+<!--
+Web page for administrator person only
+Used for data management of existing users
+-->
 
 
+
+
+
+<!-- DB download -->
 <?php
 
 $filepath = __DIR__ . '\jsondb\userinfo.json';
@@ -29,6 +39,7 @@ if (file_exists($filepath)) {
 
 
 
+<!-- Error message form -->
 <?php
 if(isset($_SESSION["message"])){
     $message = $_SESSION["message"];
@@ -40,11 +51,13 @@ if(isset($_SESSION["message"])){
 }
 ?>
 
+<!-- Customer list printing -->
 <?php foreach ($existingData as $custId => $cust): ?>
     <div class="userstring">
     <div id="user_<?php echo $custId; ?>" class="listofusersinfo">
         <div class="image-cont">
 
+            <!-- Checking for the profile picture of the user -->
             <?php
             if(isset($cust['photo'])) {
                 $file = glob("pictures/userpictures/{$cust['photo']}");
@@ -55,6 +68,7 @@ if(isset($_SESSION["message"])){
                 }
             }
 
+            // Checking if the age of the user is set
             if(!isset($cust['age'])) {
                 $today = new DateTime();
                 $age = $today->diff(new DateTime($cust["dob"]))->y;
@@ -63,6 +77,8 @@ if(isset($_SESSION["message"])){
 
         </div>
 
+
+        <!-- Checking if the trainer's specialization is set-->
         <p><?php
             if($cust['status'] == 'trainer' and isset($cust['spec'])) {
                 echo "( $custId )  ".$cust["fname"]." ".$cust["sname"]." "."[- {$cust['status']} -] ({$cust['spec']})";
@@ -75,12 +91,11 @@ if(isset($_SESSION["message"])){
         <div class="dropdown">
             <ul>
                 <li> <?php echo "<u>Age</u>:<br>{$age}"?></li>
-                <li><?php echo"<u>Experience</u>:<br> "?></li>
             </ul>
         </div>
 
     </div>
-
+        <!-- If the printed person is not the administrator, adding data management buttons -->
         <?php if($_SESSION['id']!=$custId): ?>
         <form class="admineditplace" action="makeatrainer.php" method="post">
             <input type="hidden" name="usertochangeid" value="<?php echo $custId; ?>" >
@@ -109,6 +124,6 @@ if(isset($_SESSION["message"])){
 
 
 
-
+<!-- Footer file-->
 <?php
 require_once "footer.php";

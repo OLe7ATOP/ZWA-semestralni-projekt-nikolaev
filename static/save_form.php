@@ -1,71 +1,35 @@
 <?php
 session_start();
+header('Content-Type: application/json');
+
+/*
+ * Functional file for saving the
+ * new user's info to DB
+ */
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //Getting the data
     $firstname = htmlspecialchars($_POST["fname"]);
     $secondname = htmlspecialchars($_POST["sname"]);
     $dob = htmlspecialchars($_POST["dob"]);
     $gender = htmlspecialchars($_POST["gender"]);
     $mail = htmlspecialchars($_POST["mail"]);
+    $pass = htmlspecialchars($_POST["pass01"]);
+    $pass_check = htmlspecialchars($_POST["pass02"]);
     $err = false;
 
-    $_SESSION["display"] = 'block';
-    if(empty($firstname)){
-        $_SESSION["message"] = "Enter your firstname";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
-    if(empty($secondname)){
-        $_SESSION["message"] = "Enter your second name";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
-    if(empty($dob)){
-        $_SESSION["message"] = "Enter your Date of birth";
-        $err = true;
-        header("Location: registration.php");
+    // Валидация на сервере
+    if (empty($firstname) || empty($secondname) || empty($dob) || empty($mail) || empty($pass) || empty($pass_check)) {
+        echo json_encode(["status" => "error", "message" => "Feel all the fields are required."]);
         exit();
     }
 
+    if ($pass !== $pass_check) {
+        echo json_encode(["status" => "error", "message" => "Пароли не совпадают!"]);
+        exit();
+    }
     $age = new DateTime();
     $age = $age->diff(new DateTime($dob))->y;
-
-    if(empty($gender)){
-        $_SESSION["message"] = "Enter your gender";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
-    if(empty($mail)){
-        $_SESSION["message"] = "Enter your mail";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
-
-    $pass =htmlspecialchars($_POST["pass01"]);
-    $pass_check =htmlspecialchars($_POST["pass02"]);
-
-    if(empty($pass)){
-        $_SESSION["message"] = "Enter your password";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
-    if(empty($pass_check)){
-        $_SESSION["message"] = "Enter your password once more";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
-    if($pass != $pass_check){
-        $_SESSION["message"] = "Location: registration.php";
-        $err = true;
-        header("Location: registration.php");
-        exit();
-    }
 
 
     $passhash = password_hash($pass, PASSWORD_DEFAULT);
@@ -75,6 +39,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $age = $currentdate->diff($dobDate);
 
 
+
+    /*
+     * Converting the data to the
+     *  required form.
+     */
 
 
     $data = [
@@ -97,12 +66,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ]
     ];
 
+    //loading the photo
     if(isset($_FILES['profilephoto']) && $_FILES['profilephoto']['tmp_name'] !== '') {
         $file = $_FILES['profilephoto'];
         $pictDir = __DIR__.'/pictures/userpictures/';
         if(!is_dir($pictDir)){
             mkdir($pictDir, 0777, true);
         }
+
 
         $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $uniqueFileName = uniqid('userpic_', true).'.'.$file_extension;
@@ -113,8 +84,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         } else {
             $_SESSION["message"] = "Error in loading photo";
             $err = true;
-            header("Location: registration.php");
+            echo json_encode(["status" => "error", "message" => "Error in loading photo"]);
             exit();
+
         }
     }
 
@@ -122,6 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $data['aboutme'] = $_POST['aboutme'];
     }
 
+    //Download DB
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if (file_exists($filepath)) {
@@ -131,8 +104,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($jsonContent === false) {
             $_SESSION["message"] = "DB access error";
             $err = true;
-            header("Location: registration.php");
+            echo json_encode(["status" => "error", "message" => "DB access error"]);
             exit();
+
         }
 
         if (json_last_error() !== JSON_ERROR_NONE) {
@@ -145,20 +119,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     foreach ($existingData as $user){
+        //Checking if the e-mail is free to use
         if($data["mail"] == $user["mail"]){
-            $_SESSION["message"] = "This e-mail is already in use";
-            header("Location: registration.php");
+            echo json_encode(["status" => "error", "message" => "This e-mail is already in use"]);
             exit();
         }
     }
-    $id = sizeof($existingData) * 3 + 13;
+    //Adding the ID to the user
+    $id = sizeof($existingData) * 13 + 13;
 
+    //Saving the data
     $existingData[$id] = $data;
     file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
     $_SESSION["user"] = $data;
     $_SESSION["status"] = $data["status"];
     $_SESSION['id'] = $id;
-    header("Location: userpage.php");
+
+    echo json_encode(['status' => 'success', 'redirect' => 'userpage.php']);
     exit();
 
 

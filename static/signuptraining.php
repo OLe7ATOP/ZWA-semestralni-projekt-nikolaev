@@ -1,14 +1,25 @@
 <?php
 session_start();
+header('Content-Type: application/json');
+
+/*
+ * File for adding the training to
+ * the user's schedule
+ */
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+    /*
+     * Getting the data in the string form
+     * and separating it on the required parts.
+     */
     $data = $_POST["traininginfo"];
 
     $trainerID = substr($data, 0, strlen($data) - 10);
     $timeTo = substr($data,  -5);
     $dowTo = substr($data, -9, 3);
 
+    //Download DB
     $filepath = __DIR__ . '\jsondb\userinfo.json';
 
     if (file_exists($filepath)) {
@@ -16,9 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $existingData = json_decode($jsonContent, true);
 
         if ($jsonContent === false) {
-            $_SESSION["message"] = "DB access error";
-            $err = true;
-            header("Location: registration.php");
+            echo json_encode(["status" => "error", "message" => "DB access error"]);
             exit();
         }
 
@@ -31,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $customerid = $_SESSION["id"];
 
 
+    //Getting the required training out of DB
     foreach ($existingData as $userid => &$someUser) {
         if ($userid == $trainerID) {
             foreach ($someUser['trainings'][$dowTo] as $index => $requiredTraining) {
@@ -42,13 +52,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }
     }
+
+    //Adding training to the user's schedule
     foreach ($existingData as $userid => &$someUser) {
         if ($userid == $customerid) {
             if(isset($training)) {
                 foreach($someUser['trainings'][$dowTo] as &$session){
                     if($session['start'] <= $training['start'] && $session['end'] >= $training['start'] || $session['start'] <= $training['end'] && $session['end'] >= $training['end']){
-                        $_SESSION['message'] = "Oops... Seems like zou have another training this time";
-                        header("Location: userpage.php");
+                        echo json_encode(["status" => "error", "message" => "Oops... Looks like you have another training in this time"]);
                         exit();
                     }
                 }
@@ -59,16 +70,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION['user'] = $someUser;
                 $_SESSION['id'] = $userid;
                 file_put_contents($filepath, json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-                header("Location: userpage.php");
+
+                echo json_encode(["status" => "success", "redirect" => "userpage.php"]);
                 exit();
+
             } else {
-                header("Location: userpage.php");
+                echo json_encode(["status" => "error", "message" => "Oops... Some Error"]);
                 exit();
             }
         }
     }
-
-    echo "UNKNOWN ERROR!";
+    echo json_encode(["status" => "error", "message" => "Unknown error"]);
+    exit();
 
 
 }

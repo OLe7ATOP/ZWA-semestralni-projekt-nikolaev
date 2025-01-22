@@ -1,14 +1,24 @@
 {
-    "40": {
-        "fname": "админ",
-        "sname": "админыч",
+    "1010101": {
+        "fname": "Админ",
+        "sname": "Жоский",
         "dob": "2003-11-12",
-        "gender": "sonic",
-        "pass": "$2y$10$pPs1t2koWYT5EHuq.BQPz.3pffckUxsDzLS4DahrfVrlbIzyfvd9i",
+        "age": 21,
+        "gender": "male",
+        "pass": "$2y$10$BgeFJgSdLkmc2r5HEnQWvO3xUuOYcZcRxFY8hL1rcQM4Cl5Z8Q4.S",
         "mail": "admin.of.this.gym@gmail.com",
         "status": "admin",
-        "photo": "userpic_67583c53f286f4.88349806.png",
-        "aboutme": "Мат на сервере - БАН\r\nмладше 14 лет - БАН\r\nБлины не есть.... без сгущенки"
+        "trainings": {
+            "mon": [],
+            "tue": [],
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": []
+        },
+        "photo": "userpic_6791603888f1f6.23029453.png",
+        "aboutme": ""
     },
     "67": {
         "fname": "Billy",
@@ -126,7 +136,13 @@
         "status": "trainer",
         "spec": "gym",
         "trainings": {
-            "mon": [],
+            "mon": [
+                {
+                    "start": "12:40",
+                    "end": "13:30",
+                    "dow": "mon"
+                }
+            ],
             "tue": [
                 {
                     "start": "08:00",
@@ -136,6 +152,21 @@
             ],
             "wed": [],
             "thu": [
+                {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "dow": "thu"
+                },
+                {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "dow": "thu"
+                },
+                {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "dow": "thu"
+                },
                 {
                     "start": "12:00",
                     "end": "14:00",
